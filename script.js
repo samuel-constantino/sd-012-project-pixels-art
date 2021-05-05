@@ -1,4 +1,4 @@
-window.onload = () => {
+window.onload = function() {
   // adiciona cores em palette
   function addColorsInPalette() {
     const elementsColor = document.querySelectorAll('.color');
@@ -29,4 +29,11 @@ window.onload = () => {
 		}
 	}
 	setColorSelected('black');
+
+	document.addEventListener('click', (event) => {
+		if(event.target.classList.contains('color')) {
+			let color = event.target.style.backgroundColor;
+			setColorSelected(color);
+		}
+	});
 }

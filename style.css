@@ -1,4 +1,3 @@
-
 /* Paleta de Cores */
 #color-palette {
   display: table;
@@ -9,12 +8,13 @@
   display: table;
 	margin-top: 50px;
 }
-.row-palette, .row-board {
+
+.row-palette , .row-board {
   display: table-row;
   padding: 5px;
 }
 
-.color, .pixel {
+.color , .pixel {
   display: table-cell;
   border: 1px solid black;
 	width: 40px;
