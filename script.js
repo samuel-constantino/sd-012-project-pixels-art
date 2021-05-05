@@ -1,3 +1,22 @@
+// cria quadro
+const pixelBoard = document.querySelector('#pixel-board');
+function creatingPixelDivsCollumns(row, colunas) {
+  for (let column = 1; column <= colunas; column += 1) {
+    const pixel = document.createElement('div');
+    pixel.className = 'pixel';
+    row.appendChild(pixel);
+  }
+}
+function creatingPixelDivs(linhas) {
+  for (let row = 1; row <= linhas; row += 1) {
+    const rowBoard = document.createElement('div');
+    rowBoard.className ='row-board';
+    pixelBoard.appendChild(rowBoard);
+    creatingPixelDivsCollumns(rowBoard, linhas);
+  }
+}
+creatingPixelDivs(5);
+
 // adiciona cores em palette
 function addColorsInPalette() {
   const elementsColor = document.querySelectorAll('.color');
@@ -8,19 +27,20 @@ function addColorsInPalette() {
 }
 addColorsInPalette();
 
+// adiciona cor branca padrão aos pixels
 function addColorWhiteInBoard() {
   const elementsPixel = document.querySelectorAll('.pixel');
-  for (let pixel of elementsPixel) {
+  for (const pixel of elementsPixel) {
     pixel.style.backgroundColor = 'white';
   }
 }
 addColorWhiteInBoard();
 
 function setColorSelected(color) {
-  let elementsColor = document.querySelectorAll('.color');
-  for (let value of elementsColor) {
+  const elementsColor = document.querySelectorAll('.color');
+  for (const value of elementsColor) {
     if (value.className === 'color selected') {
-      value.className = 'color'
+      value.className = 'color';
     }
     if (value.style.backgroundColor === color) {
       value.className = 'color selected';
@@ -31,16 +51,35 @@ setColorSelected('black');
 
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('color')) {
-    let color = event.target.style.backgroundColor;
+    const color = event.target.style.backgroundColor;
     setColorSelected(color);
   }
-	if (event.target.classList.contains('pixel')) {
-		let elementColorSelected = document.querySelector('.selected');
-		event.target.style.backgroundColor = elementColorSelected.style.backgroundColor;
+  if (event.target.classList.contains('pixel')) {
+    let elementColorSelected = document.querySelector('.selected');
+    event.target.style.backgroundColor = elementColorSelected.style.backgroundColor;
   }
 });
 
 let btnClear = document.querySelector('#clear-board');
 btnClear.addEventListener('click', () => {
-	addColorWhiteInBoard();
+  addColorWhiteInBoard();
 });
+
+// refaz quantidade de pixels
+function recreateBoard(number){
+	let rowBoards = pixelBoard.querySelectorAll('.row-board');
+	// excluir elementos existentes
+	for(let index = 0; index < rowBoards.length; index += 1) {
+		pixelBoard.removeChild(rowBoards[index]);
+	}
+	// cria novamente os elementos com novo parâmetro
+	creatingPixelDivs(number);
+};
+
+let btnBoard = document.querySelector('#btn-size-board');
+btnBoard.addEventListener('click', () => {
+	let inputQuantity = parseInt(document.querySelector('#quantity').value);
+	recreateBoard(inputQuantity);
+});
+
+
