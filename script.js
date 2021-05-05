@@ -1,5 +1,6 @@
 // cria quadro
 const pixelBoard = document.querySelector('#pixel-board');
+
 function creatingPixelDivsCollumns(row, colunas) {
   for (let column = 1; column <= colunas; column += 1) {
     const pixel = document.createElement('div');
@@ -7,6 +8,7 @@ function creatingPixelDivsCollumns(row, colunas) {
     row.appendChild(pixel);
   }
 }
+
 function creatingPixelDivs(linhas) {
   for (let row = 1; row <= linhas; row += 1) {
     const rowBoard = document.createElement('div');
@@ -66,22 +68,26 @@ btnClear.addEventListener('click', () => {
 });
 
 // refaz quantidade de pixels
-function recreateBoard(number){
-	let rowBoards = pixelBoard.querySelectorAll('.row-board');
-	// excluir elementos existentes
-	for(let index = 0; index < rowBoards.length; index += 1) {
-		pixelBoard.removeChild(rowBoards[index]);
-	}
-	// cria novamente os elementos com novo parâmetro
-	creatingPixelDivs(number);
+function recreateBoard(number) {
+  let rowBoards = pixelBoard.querySelectorAll('.row-board');
+  // excluir elementos existentes
+  for (let index = 0; index < rowBoards.length; index += 1) {
+    pixelBoard.removeChild(rowBoards[index]);
+  }
+  // cria novamente os elementos com novo parâmetro
+  creatingPixelDivs(number);
 };
 
 let btnBoard = document.querySelector('#generate-board');
 btnBoard.addEventListener('click', () => {
-	let inputQuantity = document.querySelector('#board-size').value;
-	if(inputQuantity === '') {
-		alert('Board inválido!');
-	} else {
-		recreateBoard(parseInt(inputQuantity));
-	}
+  let inputQuantity = document.querySelector('#board-size').value;
+  if (inputQuantity === '') {
+    alert('Board inválido!');
+  } else if (inputQuantity < '5') {
+		recreateBoard(5);
+  } else if (inputQuantity > '50') {
+		recreateBoard(50);
+  } else {
+    recreateBoard(parseInt(inputQuantity));
+  }
 });
