@@ -6,7 +6,7 @@
 /* Quadro de pixels */
 #pixel-board {
   display: table;
-  margin-top: 50px;
+  margin-top: 25px;
 }
 
 .row-palette , .row-board {
@@ -19,4 +19,8 @@
   border: 1px solid black;
   width: 40px;
   height: 40px;
+}
+
+#clear-board {
+	margin-top: 25px;
 }

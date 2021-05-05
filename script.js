@@ -2,19 +2,19 @@
 function addColorsInPalette() {
   const elementsColor = document.querySelectorAll('.color');
   const colorsList = ['black', 'blue', 'red', 'green'];
-  for (let key in colorsList) {
+  for (const key in colorsList) {
     elementsColor[key].style.backgroundColor = colorsList[key];
   }
 }
 addColorsInPalette();
 
-function addColorInBoard() {
+function addColorWhiteInBoard() {
   const elementsPixel = document.querySelectorAll('.pixel');
   for (let pixel of elementsPixel) {
     pixel.style.backgroundColor = 'white';
   }
 }
-addColorInBoard();
+addColorWhiteInBoard();
 
 function setColorSelected(color) {
   let elementsColor = document.querySelectorAll('.color');
@@ -38,4 +38,9 @@ document.addEventListener('click', (event) => {
 		let elementColorSelected = document.querySelector('.selected');
 		event.target.style.backgroundColor = elementColorSelected.style.backgroundColor;
   }
+});
+
+let btnClear = document.querySelector('#clear-board');
+btnClear.addEventListener('click', () => {
+	addColorWhiteInBoard();
 });
