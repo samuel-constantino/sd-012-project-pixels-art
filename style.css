@@ -1,14 +1,12 @@
+
 /* Paleta de Cores */
 #color-palette {
   display: table;
-  width: 200px;
-  height: 50px;
 }
+
 /* Quadro de pixels */
 #pixel-board {
   display: table;
-  width: 250px;
-  height: 250px;
 	margin-top: 50px;
 }
 .row-palette, .row-board {
@@ -19,5 +17,7 @@
 .color, .pixel {
   display: table-cell;
   border: 1px solid black;
+	width: 40px;
+	height: 40px;
 }
 

@@ -1,11 +1,19 @@
 window.onload = () => {
   // adiciona cores em palette
   function addColorsInPalette() {
-    const elementColors = document.querySelectorAll('.color');
-    let colorsList = ['black', 'blue', 'red', 'green'];
+    const elementsColor = document.querySelectorAll('.color');
+    const colorsList = ['black', 'blue', 'red', 'green'];
     for (let key in colorsList) {
-      elementColors[key].style.backgroundColor = colorsList[key];
+      elementsColor[key].style.backgroundColor = colorsList[key];
     }
   }
   addColorsInPalette();
+
+	function addColorInBoard(){
+		const elementsPixel = document.querySelectorAll('.pixel');
+		for(let pixel of elementsPixel) {
+			pixel.style.backgroundColor = 'white';
+		}
+	}
+	addColorInBoard();
 }
