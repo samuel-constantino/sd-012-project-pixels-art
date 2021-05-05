@@ -3,7 +3,7 @@ window.onload = () => {
   function addColorsInPalette() {
     const elementsColor = document.querySelectorAll('.color');
     const colorsList = ['black', 'blue', 'red', 'green'];
-    for (let key in colorsList) {
+    for (let key in elementsColor) {
       elementsColor[key].style.backgroundColor = colorsList[key];
     }
   }
