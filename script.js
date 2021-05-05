@@ -10,7 +10,7 @@ function creatingPixelDivsCollumns(row, colunas) {
 function creatingPixelDivs(linhas) {
   for (let row = 1; row <= linhas; row += 1) {
     const rowBoard = document.createElement('div');
-    rowBoard.className ='row-board';
+    rowBoard.className = 'row-board';
     pixelBoard.appendChild(rowBoard);
     creatingPixelDivsCollumns(rowBoard, linhas);
   }
@@ -76,10 +76,12 @@ function recreateBoard(number){
 	creatingPixelDivs(number);
 };
 
-let btnBoard = document.querySelector('#btn-size-board');
+let btnBoard = document.querySelector('#generate-board');
 btnBoard.addEventListener('click', () => {
-	let inputQuantity = parseInt(document.querySelector('#quantity').value);
-	recreateBoard(inputQuantity);
+	let inputQuantity = document.querySelector('#board-size').value;
+	if(inputQuantity === '') {
+		alert('Board inválido!');
+	} else {
+		recreateBoard(parseInt(inputQuantity));
+	}
 });
-
-
