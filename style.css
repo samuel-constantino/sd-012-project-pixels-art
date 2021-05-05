@@ -1,15 +1,23 @@
+/* Paleta de Cores */
 #color-palette {
   display: table;
   width: 200px;
   height: 50px;
 }
-
-.row {
+/* Quadro de pixels */
+#pixel-board {
+  display: table;
+  width: 250px;
+  height: 250px;
+	margin-top: 50px;
+}
+.row-palette, .row-board {
   display: table-row;
   padding: 5px;
 }
 
-.color {
+.color, .pixel {
   display: table-cell;
   border: 1px solid black;
 }
+
