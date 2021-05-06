@@ -3,18 +3,20 @@
   display: table;
 }
 
+.color {
+  display: table-cell;
+  border: 1px solid black;
+  width: 40px;
+  height: 40px;
+}
+
 /* Quadro de pixels */
 #pixel-board {
-  display: table;
+  border-collapse: collapse;
   margin-top: 25px;
 }
 
-.row-palette , .row-board {
-  display: table-row;
-  padding: 5px;
-}
-
-.color , .pixel {
+.pixel {
   display: table-cell;
   border: 1px solid black;
   width: 40px;
