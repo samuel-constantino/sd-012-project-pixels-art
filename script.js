@@ -49,16 +49,6 @@ function createBoard(quantityRows) {
 }
 createBoard(5);
 
-// adiciona cores em palette
-// function addColorsInPalette() {
-//   const elementsColor = document.querySelectorAll('.color');
-//   const colorsList = ['black', 'blue', 'red', 'green'];
-//   for (const key in colorsList) {
-//     elementsColor[key].style.backgroundColor = colorsList[key];
-//   }
-// }
-// addColorsInPalette();
-
 // adiciona cor branca padrão aos pixels
 function addColorWhiteInBoard() {
   const elementsPixel = document.querySelectorAll('.pixel');
