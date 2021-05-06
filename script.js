@@ -42,6 +42,7 @@ function createBoardCollumns(newLine, quantityColumnns) {
 function createBoard(quantityRows) {
   for (let row = 1; row <= quantityRows; row += 1) {
     const newLine = document.createElement('tr');
+    newLine.className = 'row-board';
     elementPixelBoard.appendChild(newLine);
     createBoardCollumns(newLine, quantityRows);
   }
@@ -81,6 +82,7 @@ function setColorSelected(color) {
 }
 setColorSelected('black');
 
+// adiciona evento de click ao documento para detectar clicks na classe color
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('color')) {
     const color = event.target.style.backgroundColor;
@@ -92,32 +94,42 @@ document.addEventListener('click', (event) => {
   }
 });
 
+// adiciona evento de limpar board ao clicar em botão
 let btnClear = document.querySelector('#clear-board');
 btnClear.addEventListener('click', () => {
   addColorWhiteInBoard();
 });
 
-// refaz quantidade de pixels
-function recreateBoard(number) {
+function removeRows(){
+  let pixelBoard = document.querySelector('#pixel-board');
   let rowBoards = pixelBoard.querySelectorAll('.row-board');
-  // excluir elementos existentes
   for (let index = 0; index < rowBoards.length; index += 1) {
     pixelBoard.removeChild(rowBoards[index]);
   }
-  // cria novamente os elementos com novo parâmetro
-  createBoard(number);
-};
+}
 
-let btnBoard = document.querySelector('#generate-board');
-btnBoard.addEventListener('click', () => {
-  let boardSize = document.querySelector('#board-size').value;
-  if (boardSize === '') {
+// refaz quantidade de pixels
+function recreateBoard(boardSize) {
+  console.log(boardSize)
+  if (boardSize === '' || boardSize <= 0) {
     alert('Board inválido!');
   } else if (boardSize < 5) {
-    recreateBoard(5);
+    removeRows();
+    createBoard(5);
   } else if (boardSize > 50) {
-    recreateBoard(50);
+    removeRows();
+    createBoard(50);
   } else {
+    removeRows();
+    createBoard(boardSize)
+  }
+};
+
+// adiciona eventos
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'generate-board') {
+    let boardSize = document.querySelector('#board-size').value;
+    console.log(boardSize)
     recreateBoard(boardSize);
   }
 });
