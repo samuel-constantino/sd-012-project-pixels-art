@@ -50,15 +50,6 @@ function createBoard(quantityRows) {
 }
 createBoard(5);
 
-// adiciona cor branca padrão aos pixels
-function addColorWhiteInBoard() {
-  const elementsPixel = document.querySelectorAll('.pixel');
-  for (const pixel of elementsPixel) {
-    pixel.style.backgroundColor = 'white';
-  }
-}
-addColorWhiteInBoard();
-
 // seleciona cor preta como padão inicial
 function setColorSelected(color) {
   const elementsColor = document.querySelectorAll('.color');
