@@ -80,14 +80,14 @@ function recreateBoard(number) {
 
 let btnBoard = document.querySelector('#generate-board');
 btnBoard.addEventListener('click', () => {
-  let inputQuantity = document.querySelector('#board-size').value;
-  if (inputQuantity === '') {
+  let boardSize = document.querySelector('#board-size').value;
+  if (boardSize === '') {
     alert('Board inválido!');
-  } else if (inputQuantity < '5') {
+  } else if (boardSize < 5) {
 		recreateBoard(5);
-  } else if (inputQuantity > '50') {
+  } else if (boardSize > 50) {
 		recreateBoard(50);
   } else {
-    recreateBoard(parseInt(inputQuantity));
+    recreateBoard(boardSize);
   }
 });
