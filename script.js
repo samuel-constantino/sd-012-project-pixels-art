@@ -35,6 +35,7 @@ function createBoardCollumns(newLine, quantityColumnns) {
   for (let column = 1; column <= quantityColumnns; column += 1) {
     const newCell = document.createElement('td');
     newCell.className = 'pixel';
+    newCell.style.backgroundColor = 'white';
     newLine.appendChild(newCell);
   }
 }
