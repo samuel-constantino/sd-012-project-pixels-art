@@ -1,4 +1,4 @@
-// cria cores aleatórias  
+// cria cores aleatórias
 const generateRandomColor = () => {
   let randomColor;
   let randomR;
