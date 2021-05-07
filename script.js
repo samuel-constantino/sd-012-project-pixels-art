@@ -50,7 +50,16 @@ function createBoard(quantityRows) {
 }
 createBoard(5);
 
-// seleciona cor preta como padão inicial
+// adiciona cor branca padrão aos pixels
+function addColorWhiteInBoard() {
+  const elementsPixel = document.querySelectorAll('.pixel');
+  for (const pixel of elementsPixel) {
+    pixel.style.backgroundColor = 'white';
+  }
+}
+addColorWhiteInBoard();
+
+// da para otimizar, fazendo a verificação com 'event' dentro do próximo evento document.
 function setColorSelected(color) {
   const elementsColor = document.querySelectorAll('.color');
   for (const value of elementsColor) {
@@ -66,10 +75,12 @@ setColorSelected('black');
 
 // adiciona evento de click ao documento para detectar clicks na classe color
 document.addEventListener('click', (event) => {
+  // selecionar a cor na paleta
   if (event.target.classList.contains('color')) {
     const color = event.target.style.backgroundColor;
     setColorSelected(color);
   }
+  // pintar pixel no quadro
   if (event.target.classList.contains('pixel')) {
     let elementColorSelected = document.querySelector('.selected');
     event.target.style.backgroundColor = elementColorSelected.style.backgroundColor;
