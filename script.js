@@ -16,7 +16,6 @@ const generateRandomColor = () => {
 
 // cria paleta de cores
 const elementColorPalette = document.querySelector('#color-palette');
-
 for (let index = 0; index < 4; index += 1) {
   const newColor = document.createElement('div');
   newColor.className = 'color';
@@ -83,19 +82,20 @@ document.addEventListener('click', (event) => {
   // pintar pixel no quadro
   if (event.target.classList.contains('pixel')) {
     const elementColorSelected = document.querySelector('.selected');
-    event.target.style.backgroundColor = elementColorSelected.style.backgroundColor;
+    let pixel = event.target.style.backgroundColor;
+    pixel = elementColorSelected.style.backgroundColor;
   }
 });
 
 // adiciona evento de limpar board ao clicar em botão
-let btnClear = document.querySelector('#clear-board');
+const btnClear = document.querySelector('#clear-board');
 btnClear.addEventListener('click', () => {
   addColorWhiteInBoard();
 });
 
 function removeRows(){
-  let pixelBoard = document.querySelector('#pixel-board');
-  let rowBoards = pixelBoard.querySelectorAll('.row-board');
+  const pixelBoard = document.querySelector('#pixel-board');
+  const rowBoards = pixelBoard.querySelectorAll('.row-board');
   for (let index = 0; index < rowBoards.length; index += 1) {
     pixelBoard.removeChild(rowBoards[index]);
   }
@@ -121,7 +121,7 @@ function recreateBoard(boardSize) {
 // adiciona eventos
 document.addEventListener('click', (event) => {
   if (event.target.id === 'generate-board') {
-    let boardSize = document.querySelector('#board-size').value;
+    const boardSize = document.querySelector('#board-size').value;
     console.log(boardSize)
     recreateBoard(boardSize);
   }

@@ -1,3 +1,6 @@
+body {
+  background-image: url('./imgs/fundo-pixels-art.jpg');
+}
 /* Paleta de Cores */
 .color {
   display: inline-block;
