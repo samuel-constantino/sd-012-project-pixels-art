@@ -82,8 +82,7 @@ document.addEventListener('click', (event) => {
   // pintar pixel no quadro
   if (event.target.classList.contains('pixel')) {
     const elementColorSelected = document.querySelector('.selected');
-    let pixel = event.target.style.backgroundColor;
-    pixel = elementColorSelected.style.backgroundColor;
+    event.target.style.backgroundColor = elementColorSelected.style.backgroundColor;
   }
 });
 

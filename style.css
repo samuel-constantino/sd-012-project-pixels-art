@@ -1,6 +1,10 @@
 body {
   background-image: url('./imgs/fundo-pixels-art.jpg');
 }
+
+.center {
+  text-align: center;
+}
 /* Paleta de Cores */
 .color {
   display: inline-block;
@@ -13,6 +17,7 @@ body {
 /* Quadro de pixels */
 #pixel-board {
   border-collapse: collapse;
+  margin: auto;
   margin-top: 25px;
 }
 
